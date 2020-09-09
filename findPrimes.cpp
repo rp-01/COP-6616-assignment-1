@@ -28,28 +28,27 @@ int main()
                 bool flag; // to determine prime number
                 for (unsigned int num; (num = counter.fetch_add(1)) < MAX; ) { 
                     flag = true;
-				// skip 0 and 1				
-				if(num == 0 || num == 1 || ((num % 2 == 0) && (num > 2))){
-					continue;	
-				}
+			// skip 0 and 1
+			if(num == 0 || num == 1 || ((num % 2 == 0) && (num > 2))){
+				continue;	
+			}
 				
 				
                     for (unsigned int k = 2; k <= sqrt(num); ++k) {
-						if(num == 2){
-							break;					
-						}
-                        if (num % k == 0) {
-                            flag = false;
-                            break;
-                        }
+			    if(num == 2){
+				    break;					
+			    }
+			    if (num % k == 0) {
+                            	flag = false;
+                            	break;
+			    }
                     }
                     isPrime[num] = flag;
-                    
-					if(flag == true){
-						 vectLock.lock();
+			if(flag == true){
+				vectLock.lock();
                 		listOfPrimes.push_back(num);
                 		vectLock.unlock();
-					}
+			}
                 }
             }
         );
