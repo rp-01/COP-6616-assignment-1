@@ -9,9 +9,16 @@ Description:
     • The experiments are run 6 times to provide an analysis of execution times. Screenshots of output are provided below as well as in file primes.txt. Execution time graph is also provided in the last section.
     • CPU usage which shows 8 threads running when findPrimes executable is run.
     
-    Step in finding PrimeNumber:
+Step in finding PrimeNumber:
     1. Program sets a variable flag  = “true” at the start of the process
     2. Then each thread increments the atomic counter by 1 before calculating prime
     3. the value is then calculated to find if it is a Prime number or not
     4. if the value is not prime number flag value is changed to “false”
     5. prime numbers are stored into a vector if flag = “true”
+    
+How to run:
+    • program is written in c++ programming language with c++11 version and executed on Linux (Ubuntu) system.
+    • First unzip files. To run the code simply copy and paste following commands in terminal.
+    g++ -std=c++11 -pthread findPrimes.cpp -o findPrime
+     ./findPrime
+    • First commnand will create an executable called “findPrimes” and second command will run this execuable.
